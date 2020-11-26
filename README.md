@@ -1,1 +1,1 @@
-# a online mall implemented with django
+# an online mall implemented with django
