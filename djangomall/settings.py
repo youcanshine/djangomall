@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
-    'webpack_loader'
+    'webpack_loader',
+    'accounts',
+    'products',
+    'mptt'
 ]
 
 REST_FRAMEWORK = {
@@ -141,3 +144,6 @@ STATIC_URL = '/static/'
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+LOGIN_REDIRECT_URL = '/admin/'
+LOGOUT_REDIRECT_URL = 'login'
+AUTH_USER_MODEL = 'accounts.User'

@@ -9,6 +9,8 @@ djangorestframework = "==3.9.1"
 mysqlclient = {path = "D:/Python_Workspace/test_one/mysqlclient-1.4.6-cp35-cp35m-win_amd64.whl"}
 django-filter = "==2.1.0"
 django-webpack-loader = "*"
+django-mptt = "*"
+pillow = "*"
 
 [dev-packages]
 
