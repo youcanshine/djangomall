@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'webpack_loader',
     'accounts',
     'products',
-    'mptt'
+    'mptt',
+    'api'
 ]
 
 REST_FRAMEWORK = {
@@ -147,3 +148,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 LOGIN_REDIRECT_URL = '/admin/'
 LOGOUT_REDIRECT_URL = 'login'
 AUTH_USER_MODEL = 'accounts.User'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = '/media/'
+

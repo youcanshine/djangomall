@@ -57,4 +57,29 @@ class Product(models.Model):
         ProductType, related_name='products', on_delete=models.CASCADE)
     attribute_values = models.ManyToManyField('AttributeValue')
     name = models.CharField(max_length=128)
-    
+    price = models.DecimalField(max_digits=16, decimal_places=2)
+    image = models.ImageField(upload_to='products')
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class ProductVariant(models.Model):
+    product = models.ForeignKey(Product, related_name='variants', on_delete=models.CASCADE)
+    sku = models.CharField(max_length=32, unique=True)
+    name = models.CharField(max_length=255, blank=True)
+    price = models.DecimalField(max_digits=16, decimal_places=2, blank=True, null=True)
+    images = models.ImageField(upload_to='products')
+    quantity = models.PositiveIntegerField(default=0)
+    quantity_allocated = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return '-'.join([self.sku, self.name])
+
+    @property
+    def base_price(self):
+        return self.price or self.product.price
+
+
+

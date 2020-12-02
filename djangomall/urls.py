@@ -52,3 +52,13 @@ urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
     # re_path(r'^(.*)$', lambda r, s: TemplateResponse(r, 'base.html'))
 ]
+
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += [
+    path('products/', include('products.urls')),
+    path('api/', include('api.urls')),
+]
