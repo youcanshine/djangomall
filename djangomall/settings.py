@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'accounts',
     'products',
     'mptt',
-    'api'
+    'api',
+    'carts'
 ]
 
 REST_FRAMEWORK = {
