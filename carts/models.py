@@ -33,7 +33,3 @@ class CartLine(models.Model):
     class Meta:
         unique_together = ('cart', 'product_variant')
         ordering = ['-created_at']
-
-
-
-

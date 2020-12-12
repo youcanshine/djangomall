@@ -55,6 +55,7 @@
                 </div> <!-- row.// -->
                 <button class="btn btn-warning" type="submit"><i class="fa fa-cart-plus"></i>{% trans "Add to Cart" %} </button>
               </form>
+                <form action="/api/cartlines/" method="post">{% csrf_token %}</form>
               </article> <!-- card-body.// -->
             </aside> <!-- col.// -->
           </div> <!-- row.// -->
