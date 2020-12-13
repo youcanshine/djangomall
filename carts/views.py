@@ -7,11 +7,18 @@ from carts.serializers import CartLineSerializer
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from products.models import ProductVariant
+from rest_framework.permissions import IsAuthenticated
 
 
 class CartLineViewSet(viewsets.ModelViewSet):
-    queryset = CartLine.objects.all()
+    # queryset = CartLine.objects.all()
     serializer_class = CartLineSerializer
+    permission_classes = (IsAuthenticated,)
+    pagination_class = None
+
+    def get_queryset(self):
+        cart = Cart.objects.filter(user=self.request.user).first()
+        return CartLine.objects.filter(cart=cart)
 
     def create(self, request, *args, **kwargs):
         cart, _ = Cart.objects.get_or_create(user=request.user)
